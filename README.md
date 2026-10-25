@@ -42,24 +42,9 @@ The `task-solver-suite` coordinator is optional. Installing or invoking a domain
 
 ## Install
 
-The npm package is prepared as **`task-solver-suite@3.0.0`**, with a `task-solver-suite` command, Node.js **22 or later**, and no dependencies. **Publication is pending.** The installer and npm packaging are untested.
+Published on npm as **[task-solver-suite@3.0.0](https://www.npmjs.com/package/task-solver-suite/v/3.0.0)**. Requires Node.js **22 or later** and has no dependencies. The installer remains untested.
 
-### From a local checkout
-
-Before publication, clone the repository and invoke the local installer directly:
-
-~~~bash
-git clone https://github.com/Abenteur3r/task-solver-suite.git
-cd task-solver-suite
-node bin/task-solver-suite.mjs list
-node bin/task-solver-suite.mjs install --skill ml --skill research
-~~~
-
-Omit the `--skill` options to install all 23 skills.
-
-### With npx, after publication
-
-The following examples apply only after this package is published under the intended name:
+### With npx
 
 ~~~bash
 # List available skills
@@ -83,6 +68,19 @@ npx task-solver-suite@latest install --skill research --dir .claude/skills
 Copies are staged before installation, then installed one skill at a time. If a later step fails, completed skills remain installed; the error reports retained staging and backup paths. The installer attempts to restore the current skill's previous directory when replacement fails.
 
 The CLI defaults to help; help and `list` do not modify skill directories. Installing the npm package alone does not copy skills: copying requires the explicit `install` command, and there is no automatic installation lifecycle hook. `npx` may retrieve the package through npm; see the official [npm exec documentation](https://docs.npmjs.com/cli/v11/commands/npm-exec/).
+
+### From a local checkout
+
+Clone the repository and invoke the local installer directly:
+
+~~~bash
+git clone https://github.com/Abenteur3r/task-solver-suite.git
+cd task-solver-suite
+node bin/task-solver-suite.mjs list
+node bin/task-solver-suite.mjs install --skill ml --skill research
+~~~
+
+Omit the `--skill` options to install all 23 skills.
 
 <details>
 <summary>Manual installation without the Node.js installer</summary>
@@ -153,14 +151,16 @@ Codex detects skill changes automatically. If a newly installed skill does not a
 
 ## Publish to npm
 
-Publish from the repository root using an npm account with access to the chosen package name:
+For a future release, update the version in `package.json` to a new, unpublished version. Publish from the repository root using an npm maintainer account with [two-factor authentication enabled](https://docs.npmjs.com/configuring-two-factor-authentication/):
 
 ~~~bash
-npm login
+npm login --auth-type=web
 npm publish --access public
 ~~~
 
-The package file allowlist excludes the historical v2 archive. Package metadata and command exposure follow [npm's package.json format](https://docs.npmjs.com/cli/v11/configuring-npm/package-json/); registry publication follows [npm publish](https://docs.npmjs.com/cli/v11/commands/npm-publish/). Registry name availability and publishing rights have not been confirmed.
+Complete the browser login and any requested 2FA confirmation. For automated releases, use [Trusted Publishing (OIDC)](https://docs.npmjs.com/trusted-publishers/) to authenticate a configured CI workflow without a long-lived npm token.
+
+The package file allowlist excludes the historical v2 archive. Package metadata and command exposure follow [npm's package.json format](https://docs.npmjs.com/cli/v11/configuring-npm/package-json/); registry publication follows [npm publish](https://docs.npmjs.com/cli/v11/commands/npm-publish/). README changes on GitHub reach the npm package page with the next published version.
 
 ## Use a focused skill
 
@@ -219,7 +219,7 @@ All 30 former modules are retained as domain entry points or supporting referenc
 
 The complete v2 package, including evaluation scripts, fixtures, and its historical report, is preserved in the [v2 archive on GitHub](https://github.com/Abenteur3r/task-solver-suite/blob/main/archive/task-solver-suite-v2.zip). It is not included in the npm package. Those scripts target the previous single-skill layout.
 
-**Version 3 packaging and the npm installer are untested.** No tests, linters, structural validators, discovery probes, or model evaluations were run for the migration; npm packaging and installer commands have not been exercised. Earlier v2 results do not validate the new packaging. See [VALIDATION.md](VALIDATION.md).
+**Version 3.0.0 has been published; the installer and skill workflows remain untested.** No tests, linters, structural validators, discovery probes, or model evaluations were run for the migration. Installer execution, replacement/recovery paths, and npm package contents have not been validated. Earlier v2 results do not validate the new packaging. See [VALIDATION.md](VALIDATION.md).
 
 ## Sources and license
 

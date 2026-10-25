@@ -8,4 +8,6 @@ The earlier v2 checks and measurements apply only to the archived monolithic ver
 
 The migration preserves the previous workflows while changing discovery boundaries, resource locations, and optional sibling handoffs. These changes remain untested.
 
-The npm manifest and installer were added on 2026-10-26. The installer, replacement/recovery paths, npm tarball contents, and publication were not exercised. No npm install, pack, publish, CLI smoke run, or automated test was performed for this addition. The configured package name does not establish registry availability or publishing rights.
+The npm manifest and installer were added on 2026-10-26. The maintainer subsequently reported a successful publication of `task-solver-suite@3.0.0`, with npm acknowledging that registry processing may take a few minutes. Publication confirms the release was accepted; it does not validate installer behavior or skill workflows.
+
+The installer, replacement/recovery paths, and npm tarball contents remain unvalidated. The agent did not run npm install, pack, publish, CLI smoke runs, or automated tests for this addition or the post-publication documentation update.
