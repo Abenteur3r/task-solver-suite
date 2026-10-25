@@ -40,14 +40,52 @@ The `task-solver-suite` coordinator is optional. Installing or invoking a domain
 | [task-solver-domain-decisions](skills/task-solver-domain-decisions/SKILL.md) | Scope consequential health, legal, financial, or physical decisions |
 | [task-solver-risk](skills/task-solver-risk/SKILL.md) | Run focused premortems and design fail-safes |
 
-## Install in Codex
+## Install
 
-Clone the repository:
+The npm package is prepared as **`task-solver-suite@3.0.0`**, with a `task-solver-suite` command, Node.js **22 or later**, and no dependencies. **Publication is pending.** The installer and npm packaging are untested.
+
+### From a local checkout
+
+Before publication, clone the repository and invoke the local installer directly:
 
 ~~~bash
 git clone https://github.com/Abenteur3r/task-solver-suite.git
 cd task-solver-suite
+node bin/task-solver-suite.mjs list
+node bin/task-solver-suite.mjs install --skill ml --skill research
 ~~~
+
+Omit the `--skill` options to install all 23 skills.
+
+### With npx, after publication
+
+The following examples apply only after this package is published under the intended name:
+
+~~~bash
+# List available skills
+npx task-solver-suite@latest list
+
+# Install all 23 skills into ~/.agents/skills
+npx task-solver-suite@latest install
+
+# Install selected skills
+npx task-solver-suite@latest install --skill ml --skill research
+
+# Replace existing collection skills, preserving backups
+npx task-solver-suite@latest install --replace
+
+# Choose a different skill discovery parent
+npx task-solver-suite@latest install --skill research --dir .claude/skills
+~~~
+
+`--skill` is repeatable and accepts short names such as `ml` or full names such as `task-solver-ml`. `--dir` changes the destination parent; the default is the personal `~/.agents/skills` directory. Existing selected skill directories require `--replace`, which backs them up outside the destination discovery directory before replacement. Unrelated folders are left unchanged.
+
+Copies are staged before installation, then installed one skill at a time. If a later step fails, completed skills remain installed; the error reports retained staging and backup paths. The installer attempts to restore the current skill's previous directory when replacement fails.
+
+The CLI defaults to help; help and `list` do not modify skill directories. Installing the npm package alone does not copy skills: copying requires the explicit `install` command, and there is no automatic installation lifecycle hook. `npx` may retrieve the package through npm; see the official [npm exec documentation](https://docs.npmjs.com/cli/v11/commands/npm-exec/).
+
+<details>
+<summary>Manual installation without the Node.js installer</summary>
 
 Copy individual directories **inside `skills/`** into your skill discovery directory. For a personal Codex installation, the resulting layout is:
 
@@ -109,7 +147,20 @@ done
 
 For an update, review or preserve existing packages before replacing them. During migration from v2, move the previous monolithic `task-solver-suite` package outside skill discovery directories before installing the new coordinator. Keep unrelated installed skills intact.
 
+</details>
+
 Codex detects skill changes automatically. If a newly installed skill does not appear, restart Codex. For another Agent Skills-compatible client, follow that client's documented discovery paths and invocation syntax; cross-client behavior of this packaging has not been tested.
+
+## Publish to npm
+
+Publish from the repository root using an npm account with access to the chosen package name:
+
+~~~bash
+npm login
+npm publish --access public
+~~~
+
+The package file allowlist excludes the historical v2 archive. Package metadata and command exposure follow [npm's package.json format](https://docs.npmjs.com/cli/v11/configuring-npm/package-json/); registry publication follows [npm publish](https://docs.npmjs.com/cli/v11/commands/npm-publish/). Registry name availability and publishing rights have not been confirmed.
 
 ## Use a focused skill
 
@@ -135,6 +186,9 @@ task-solver-suite/
   LICENSE
   SOURCES.md
   VALIDATION.md
+  package.json
+  bin/
+    task-solver-suite.mjs
   archive/
     task-solver-suite-v2.zip
   skills/
@@ -163,9 +217,9 @@ Sibling links are optional handoffs. If a sibling is not installed, use an avail
 
 All 30 former modules are retained as domain entry points or supporting references. The seven original template types remain under their consuming skills. There is no monolithic `SKILL.md` entry point at the repository root.
 
-The complete v2 package, including evaluation scripts, fixtures, and its historical report, is preserved in [archive/task-solver-suite-v2.zip](archive/task-solver-suite-v2.zip). Those scripts target the previous single-skill layout.
+The complete v2 package, including evaluation scripts, fixtures, and its historical report, is preserved in the [v2 archive on GitHub](https://github.com/Abenteur3r/task-solver-suite/blob/main/archive/task-solver-suite-v2.zip). It is not included in the npm package. Those scripts target the previous single-skill layout.
 
-**Version 3 packaging is untested.** No tests, linters, structural validators, discovery probes, or model evaluations were run for the migration. Earlier v2 results do not validate the new packaging. See [VALIDATION.md](VALIDATION.md).
+**Version 3 packaging and the npm installer are untested.** No tests, linters, structural validators, discovery probes, or model evaluations were run for the migration; npm packaging and installer commands have not been exercised. Earlier v2 results do not validate the new packaging. See [VALIDATION.md](VALIDATION.md).
 
 ## Sources and license
 

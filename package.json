@@ -1,0 +1,38 @@
+{
+  "name": "task-solver-suite",
+  "version": "3.0.0",
+  "description": "23 focused Agent Skills and a selective installer for Codex and compatible agents.",
+  "type": "module",
+  "bin": {
+    "task-solver-suite": "bin/task-solver-suite.mjs"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "SOURCES.md",
+    "VALIDATION.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abenteur3r/task-solver-suite.git"
+  },
+  "homepage": "https://github.com/Abenteur3r/task-solver-suite#readme",
+  "bugs": {
+    "url": "https://github.com/Abenteur3r/task-solver-suite/issues"
+  },
+  "keywords": [
+    "codex",
+    "agent-skills",
+    "skills",
+    "ai",
+    "cli"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}
