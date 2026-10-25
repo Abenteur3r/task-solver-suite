@@ -11,3 +11,5 @@ The migration preserves the previous workflows while changing discovery boundari
 The npm manifest and installer were added on 2026-10-26. The maintainer subsequently reported a successful publication of `task-solver-suite@3.0.0`, with npm acknowledging that registry processing may take a few minutes. Publication confirms the release was accepted; it does not validate installer behavior or skill workflows.
 
 The installer, replacement/recovery paths, and npm tarball contents remain unvalidated. The agent did not run npm install, pack, publish, CLI smoke runs, or automated tests for this addition or the post-publication documentation update.
+
+Version 3.0.1 prepares the updated README and publication documentation for npm. Skill workflows and installer behavior are unchanged. No tests or installer commands were run for this documentation release.

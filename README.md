@@ -42,7 +42,7 @@ The `task-solver-suite` coordinator is optional. Installing or invoking a domain
 
 ## Install
 
-Published on npm as **[task-solver-suite@3.0.0](https://www.npmjs.com/package/task-solver-suite/v/3.0.0)**. Requires Node.js **22 or later** and has no dependencies. The installer remains untested.
+Install **[task-solver-suite](https://www.npmjs.com/package/task-solver-suite)** from npm. Requires Node.js **22 or later** and has no dependencies. The installer remains untested.
 
 ### With npx
 

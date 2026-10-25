@@ -1,6 +1,6 @@
 {
   "name": "task-solver-suite",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "23 focused Agent Skills and a selective installer for Codex and compatible agents.",
   "type": "module",
   "bin": {
