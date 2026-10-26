@@ -42,7 +42,7 @@ The `task-solver-suite` coordinator is optional. Installing or invoking a domain
 
 ## Install
 
-Install **[task-solver-suite](https://www.npmjs.com/package/task-solver-suite)** from npm. Requires Node.js **22 or later** and has no dependencies. The installer remains untested.
+Install **[task-solver-suite](https://www.npmjs.com/package/task-solver-suite)** from npm. Release **[3.0.1](https://www.npmjs.com/package/task-solver-suite/v/3.0.1)** is published. Requires Node.js **22 or later** and has no dependencies. The installer remains untested.
 
 ### With npx
 
@@ -219,7 +219,7 @@ All 30 former modules are retained as domain entry points or supporting referenc
 
 The complete v2 package, including evaluation scripts, fixtures, and its historical report, is preserved in the [v2 archive on GitHub](https://github.com/Abenteur3r/task-solver-suite/blob/main/archive/task-solver-suite-v2.zip). It is not included in the npm package. Those scripts target the previous single-skill layout.
 
-**Version 3.0.0 has been published; the installer and skill workflows remain untested.** No tests, linters, structural validators, discovery probes, or model evaluations were run for the migration. Installer execution, replacement/recovery paths, and npm package contents have not been validated. Earlier v2 results do not validate the new packaging. See [VALIDATION.md](VALIDATION.md).
+**The npm package is published; the installer and skill workflows remain untested.** No tests, linters, structural validators, discovery probes, or model evaluations were run for the migration. Installer execution, replacement/recovery paths, and npm package contents have not been validated. Earlier v2 results do not validate the new packaging. See [VALIDATION.md](VALIDATION.md).
 
 ## Sources and license
 

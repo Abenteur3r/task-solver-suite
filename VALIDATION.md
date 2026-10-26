@@ -12,4 +12,4 @@ The npm manifest and installer were added on 2026-10-26. The maintainer subseque
 
 The installer, replacement/recovery paths, and npm tarball contents remain unvalidated. The agent did not run npm install, pack, publish, CLI smoke runs, or automated tests for this addition or the post-publication documentation update.
 
-Version 3.0.1 prepares the updated README and publication documentation for npm. Skill workflows and installer behavior are unchanged. No tests or installer commands were run for this documentation release.
+Version 3.0.1 contains the updated README and publication documentation for npm. The maintainer supplied npm's publication confirmation dated 2026-10-26 (2026-10-25T21:55:28.016Z), with reported package shasum `12ca28a07efb8f63365901dfa0cd0198038feb0c`. This records the supplied confirmation; the package contents and checksum were not independently verified. Skill workflows and installer behavior are unchanged. No tests or installer commands were run for this documentation release.
